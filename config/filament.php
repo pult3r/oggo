@@ -86,4 +86,8 @@ return [
 
     'livewire_loading_delay' => 'default',
 
+    'default_table_name_length' => 50 , 
+    'default_table_text_length' => 100 , 
+
+
 ];
