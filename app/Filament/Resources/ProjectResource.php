@@ -10,9 +10,12 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Get;
 use Closure;
 use Illuminate\Support\Facades\Validator;
@@ -27,24 +30,25 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required()->maxLength(255),
-                Forms\Components\Textarea::make('description')->rows(10), 
-                Forms\Components\DatePicker::make('startdate')->required()->rules([
+                TextInput::make('name')->required()->maxLength(255),
+                Textarea::make('description')->rows(10), 
+                DatePicker::make('startdate')->required()->rules([
                     function (Get $get) {
                         return function () use ($get) {
                             if($get('enddate') === null)  
                                 return true ; 
                             else {
                                 Validator::make([
-                                    'enddate'=>$get('enddate'), 
-                                    'startdate' => $get('startdate')
-                                    ] ,
-                                    ['enddate' => 'before_or_equal:' .  $get('startdate')]);
+                                        'enddate' => $get('enddate'), 
+                                        'startdate' => $get('startdate')
+                                    ],
+                                    ['enddate' => 'before_or_equal:' .  $get('startdate')]
+                                );
                             }
                         };
                     },
                 ]),
-                Forms\Components\DatePicker::make('enddate')->afterOrEqual('startdate')->nullable(), 
+                DatePicker::make('enddate')->afterOrEqual('startdate')->nullable(), 
             ]);
     }
 
@@ -52,16 +56,17 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->limit(config('filament.default_table_name_length', 50)), 
-                Tables\Columns\TextColumn::make('description')->limit(config('filament.default_table_text_length', 100)), 
-                Tables\Columns\TextColumn::make('startdate'), 
-                Tables\Columns\TextColumn::make('enddate'), 
+                TextColumn::make('name')->limit(config('filament.default_table_name_length', 50)) ->sortable()->searchable(isIndividual: true), 
+                TextColumn::make('description')->limit(config('filament.default_table_text_length', 80)) ->sortable()->searchable(isIndividual: true), 
+                TextColumn::make('startdate')->sortable()->searchable(isIndividual: true)->date('d.m.Y'), 
+                TextColumn::make('enddate') ->sortable()->searchable(isIndividual: true)->date('d.m.Y'), 
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(), 
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

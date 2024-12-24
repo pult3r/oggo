@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->uuid('id')->primary(); 
+            $table->foreignUuid('task_id')->references('id')->on('projects'); 
+            $table->foreignUuid('worker_id')->references('id')->on('workers')->nullable();
             $table->string('name',255)->nullable();
             $table->text('description')->nullable();
             $table->date('startdate')->nullable();
             $table->date('enddate')->nullable();
+            $table->enum('status', array('todo','inprogress.','done'))->default('todo');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('tasks');
     }
 };
