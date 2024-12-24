@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProjectResource\Pages;
-use App\Filament\Resources\ProjectResource\RelationManagers;
-use App\Models\Project;
+use App\Filament\Resources\TaskResource\Pages;
+use App\Filament\Resources\TaskResource\RelationManagers;
+use App\Models\Task;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -21,14 +21,12 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Get;
-use Closure;
-use Illuminate\Support\Facades\Validator;
 
-class ProjectResource extends Resource
+class TaskResource extends Resource
 {
-    protected static ?string $model = Project::class;
+    protected static ?string $model = Task::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-wallet';
+    protected static ?string $navigationIcon = 'heroicon-o-squares-plus';
 
     public static function form(Form $form): Form
     {
@@ -60,21 +58,17 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->limit(config('filament.default_table_name_length', 50)) ->sortable()->searchable(isIndividual: true), 
-                TextColumn::make('description')->limit(config('filament.default_table_text_length', 80)) ->sortable()->searchable(isIndividual: true), 
-                TextColumn::make('startdate')->sortable()->searchable(isIndividual: true)->date('d.m.Y'), 
-                TextColumn::make('enddate') ->sortable()->searchable(isIndividual: true)->date('d.m.Y'), 
+                
             ])
             ->filters([
                 //
             ])
             ->actions([
-                EditAction::make(),
-                DeleteAction::make(), 
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -89,9 +83,9 @@ class ProjectResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProjects::route('/'),
-            'create' => Pages\CreateProject::route('/create'),
-            'edit' => Pages\EditProject::route('/{record}/edit'),
+            'index' => Pages\ListTasks::route('/'),
+            'create' => Pages\CreateTask::route('/create'),
+            'edit' => Pages\EditTask::route('/{record}/edit'),
         ];
     }
 }
