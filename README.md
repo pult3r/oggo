@@ -40,7 +40,7 @@ APP_LOCALE=gb <br/>
 to <br/>
 APP_LOCALE=pl<br/>
 
-## 6. open mysql console and create Movies database : <br/>
+## 6. open mysql console and create database : <br/>
 CREATE DATABASE Oggo DEFAULT CHARACTER SET = 'utf8mb4';
 
 ## 7. Add aplication key :<br/>
