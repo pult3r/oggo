@@ -1,0 +1,33 @@
+{
+    "project.list.table.module.name" : "Projects",
+    "project.list.table.label.name" : "Project name", 
+    "project.list.table.label.description" : "Description",
+    "project.list.table.label.task-count" : "Tasks",
+    "project.list.table.label.start-date" : "Start date",
+    "project.list.table.label.end-date" : "End date",
+    "project.list.table.error.cannot-delete-project" : "Cannot delete project: :project",
+    "project.list.table.error.project-contain-tasks" : "Project contain tasks: :taskCount",
+
+    "task.list.table.module.name" : "Tasks",
+    "task.list.table.label.name" : "Task", 
+    "task.list.table.label.description" : "Description",
+    "task.list.table.label.worker-count" : "Workers",
+    "task.list.table.label.start-date" : "Start date",
+    "task.list.table.label.end-date" : "End date",
+    "task.list.table.label.status" : "Status", 
+    "task.list.table.label.workers" : "Workers",
+    "task.list.table.label.project" : "Project",
+    "task.list.table.error.cannot-delete-project" : "Cannot delete task: :task",
+    "task.list.table.error.project-contain-tasks" : "Task contain workers : :workersCount",
+
+    "worker.list.table.module.name" : "Workers",
+    "worker.list.table.label.name" : "Full name", 
+    "worker.list.table.label.role" : "Role", 
+    "worker.list.table.label.tasks-count" : "Task qua.",
+    "worker.list.table.error.cannot-delete-worker" : "Cannot delete worker: :worker",
+    "worker.list.table.error.worker-contain-tasks" : "Worker has assigned tasks: :tasksCount",
+
+    "enums.task-status.todo" : "To do", 
+    "enums.task-status.inprogress" : "In progress", 
+    "enums.task-status.done" : "Done"
+}

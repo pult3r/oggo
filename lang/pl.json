@@ -1,0 +1,33 @@
+{
+    "project.list.table.module.name" : "Projekty",
+    "project.list.table.label.name" : "Nazwa projektu", 
+    "project.list.table.label.description" : "Opis",
+    "project.list.table.label.task-count" : "Zadań",
+    "project.list.table.label.start-date" : "Data rozpoczęcia",
+    "project.list.table.label.end-date" : "Data zakończenia",
+    "project.list.table.error.cannot-delete-project" : "Nie można usunąć projektu: :project",
+    "project.list.table.error.project-contain-tasks" : "Projekt zawiera zadania: :taskCount",
+
+    "task.list.table.module.name" : "Zadania",
+    "task.list.table.label.name" : "Zadanie", 
+    "task.list.table.label.description" : "Opis",
+    "task.list.table.label.worker-count" : "Pracowników",
+    "task.list.table.label.start-date" : "Data rozpoczęcia",
+    "task.list.table.label.end-date" : "Data zakończenia",
+    "task.list.table.label.status" : "Status", 
+    "task.list.table.label.workers" : "Pracownicy",
+    "task.list.table.label.project" : "Projekt",
+    "task.list.table.error.cannot-delete-project" : "Nie można usunąć zadania: :task",
+    "task.list.table.error.project-contain-tasks" : "Zadanie ma przypisanych pracowników : :workersCount",
+
+    "worker.list.table.module.name" : "Pracownicy",
+    "worker.list.table.label.name" : "Imię i nazwisko", 
+    "worker.list.table.label.role" : "Rola", 
+    "worker.list.table.label.tasks-count" : "Ilość zadań",
+    "worker.list.table.error.cannot-delete-worker" : "Nie można usunąć pracownika: :worker",
+    "worker.list.table.error.worker-contain-tasks" : "Pracownik ma przypisanych zadań: :tasksCount",
+
+    "enums.task-status.todo" : "Do zrobienia", 
+    "enums.task-status.inprogress" : "W trakcie", 
+    "enums.task-status.done" : "Zakończone"
+}
