@@ -1,4 +1,10 @@
 
+## Enviroment 
+Ubuntu 22.04.5 LTS<br/>
+Laravel v11.36.1 <br/>
+PHP v8.2.24 <br/>
+Mysql  Ver 8.0.40
+
 ## How to install 
 
 ## 1. Get repository from: https://github.com/pult3r/oggo :
@@ -44,7 +50,7 @@ $ php artisan key:generate
 $ php artisan migrate
 
 ## 9. Create filament user
-php artisan make:filament-user
+$ php artisan make:filament-user
 
 ## 10. If you want add 'test' data use :<br/>
 $ php artisan db:seed --class=ProjectSeeder
